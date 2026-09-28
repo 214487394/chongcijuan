@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>冲刺卷刷题</title><style>*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;max-width:860px;margin:0 auto;padding:16px;padding-bottom:90px;background:#e8f5e0;color:#2c3e50;font-size:17px;line-height:1.8;letter-spacing:0.3px}h1{font-size:22px;text-align:center;color:#2c3e50}.chapter-title{text-align:center;font-size:19px;font-weight:600;color:#3a6b3d;margin:12px 0}.stats{text-align:center;margin-bottom:16px;font-size:15px;color:#5a6b5c}.card{background:#f4fbf0;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.04)}.q-title{font-weight:600;margin-bottom:14px;line-height:1.9;font-size:18px;color:#1a1a1a}.option{display:block;width:100%;text-align:left;padding:14px 16px;margin:10px 0;border:1px solid #cce8cd;border-radius:8px;background:#fbfef9;cursor:pointer;font-size:17px;line-height:1.6}.option:hover{background:#d8f0da;border-color:#8cc98f}.option.correct{background:#d4edda;border-color:#28a745;color:#155724}.option.wrong{background:#f8d7da;border-color:#dc3545;color:#721c24}.option.disabled{pointer-events:none;opacity:.85}.explanation{display:none;margin-top:12px;padding:12px 16px;background:#eef7ea;border-left:4px solid #8cc98f;border-radius:4px;font-size:16px;line-height:1.8;color:#444}.explanation.show{display:block}.tag{display:inline-block;font-size:13px;background:#d5eccf;color:#3a6b3d;padding:3px 10px;border-radius:10px;margin-bottom:10px}.sub-q{margin:14px 0;padding-left:8px;border-left:3px solid #b8e0b3}.nav-bar{display:none}.nav-btn{flex:1;padding:12px;background:#8cc98f;color:#fff;border:none;border-radius:8px;font-size:15px;cursor:pointer}.nav-btn:hover{background:#76b579}.nav-btn:disabled{background:#c5d5ea;cursor:not-allowed}.chapter-select{text-align:center;margin-bottom:16px}.chapter-select select{padding:10px 14px;font-size:16px;border-radius:8px;border:1px solid #b8e0b3;background:#fbfef9}.quiz-nav{position:fixed;bottom:0;left:0;right:0;background:#f4fbf0;padding:12px 16px;box-shadow:0 -2px 10px rgba(0,0,0,.06);display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:100;max-width:860px;margin:0 auto}.next-btn{padding:14px 24px;background:#8cc98f;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;flex:1}.next-btn:hover{background:#76b579}.next-btn:disabled{background:#cce8cd;cursor:not-allowed}.progress-text{font-size:15px;color:#5a6b5c;white-space:nowrap}@media(max-width:600px){body{padding:10px;padding-bottom:90px;font-size:16px}.card{padding:14px}.q-title{font-size:17px;line-height:1.85}.option{padding:14px;font-size:16px}.nav-bar{display:none}}{body{padding:8px;padding-bottom:90px}.card{padding:12px}.q-title{font-size:15px}.option{padding:12px;font-size:15px}.nav-bar{display:none}}html,body{overflow-x:hidden;touch-action:pan-y}
 #quiz{touch-action:pan-y}.chapter-select{width:100%;max-width:100%;box-sizing:border-box;padding:0 0}
-.chapter-select select{width:100%;max-width:100%;box-sizing:border-box;display:block}</style></head><body><h1>西药一冲刺卷</h1><div class="chapter-select"><select id="chapterSelect" onchange="switchChapter(this.value)"></select></div><div class="chapter-title" id="chapterTitle"></div><div class="stats" id="stats"></div><div id="quiz"></div><div class="nav-bar"><button class="nav-btn" id="prevBtn" onclick="prevChapter()">上一章</button><button class="nav-btn" id="nextBtn" onclick="nextChapter()">下一章</button></div><script>
+.chapter-select select{width:100%;max-width:100%;box-sizing:border-box;display:block}.option img{max-height:150px;object-fit:contain;margin:4px 0;vertical-align:middle}
+.q-title img{max-width:100%;height:auto}</style></head><body><h1>西药一冲刺卷</h1><div class="chapter-select"><select id="chapterSelect" onchange="switchChapter(this.value)"></select></div><div class="chapter-title" id="chapterTitle"></div><div class="stats" id="stats"></div><div id="quiz"></div><div class="nav-bar"><button class="nav-btn" id="prevBtn" onclick="prevChapter()">上一章</button><button class="nav-btn" id="nextBtn" onclick="nextChapter()">下一章</button></div><script>
 var chapters=[
  {
   name: "押题密卷（一）",
@@ -25,7 +26,7 @@ var chapters=[
     {type:"最佳选择题",q:"崩解剂是指促使片剂在胃药液中迅速破裂成细小颗粒的辅料，以下不能作为崩解剂的是",opts:["A.干淀粉","B.低取代羟丙基纤维素","C.交联羧甲基纤维素钠","D.交联聚维酮","E.甲基纤维素"],ans:"E",exp:"甲基纤维素主要作为黏合剂和包衣材料。"},
     {type:"最佳选择题",q:"小分子物质在流体静压的作用下通过亲水膜孔蛋白进行跨膜转运，又称水溶性扩散的方式是",opts:["A.单纯扩散","B.滤过","C.主动转运","D.易化扩散","E.膜动转运"],ans:"B",exp:"滤过又称水溶性扩散。"},
     {type:"最佳选择题",q:"血浆蛋白结合率会影响药物在体内的分布，以下关于血浆蛋白结合率的说法，错误的是",opts:["A.血浆蛋白结合率指血浆中结合药物浓度占总药物浓度的百分数","B.药物与血浆蛋白结合主要借助共价键","C.游离药物与结合药物在体内呈动态平衡","D.结合型药物不能透入脑脊液","E.药物与血浆蛋白结合会影响其肾小球滤过率"],ans:"B",exp:"药物与血浆蛋白结合主要借助范德瓦耳斯力、氢键或离子键，不是共价键。"},
-    {type:"最佳选择题",q:"因苯环上有多个吸电子基，导致无苯环氧化代谢产物的药物是",opts:["A.普萘洛尔","B.氯丙嗪","C.丙磺舒","D.保泰松","E.苯妥英"],ans:"C",exp:"丙磺舒苯环上有多个吸电子取代基，苯环不被氧化。"},
+    {type:"最佳选择题",q:"因苯环上有多个吸电子基，导致无苯环氧化代谢产物的药物是",opts:["A.","B.","C.","D.","E."], optImgs:["images/y1-q20-A.png","images/y1-q20-B.png","images/y1-q20-C.png","images/y1-q20-D.png","images/y1-q20-E.png"],ans:"C",exp:"丙磺舒苯环上有多个吸电子取代基，苯环不被氧化。"},
     {type:"最佳选择题",q:"属于胺类药物水解代谢反应的是",opts:["A.硝基还原反应","B.环氧化物水解","C.酰胺水解","D.葡萄糖醛酸结合","E.芳环羟基化"],ans:"D",exp:"局部麻醉药丙胺卡因在体内酰胺键水解，生成邻甲苯胺，故属于酰胺类药物水解代谢。"},
     {type:"最佳选择题",q:"酶抑制作用是指某些化学物质能抑制肝微粒体药物代谢酶的活性，减慢其他药物的代谢速率。以下药物具有肝药酶抑制作用的是",opts:["A.苯妥英钠","B.氟伏沙明","C.利福平","D.苯巴比妥","E.卡马西平"],ans:"B",exp:"氟伏沙明对CYP1A2、CYP2C19具有抑制作用，其余为肝药酶诱导剂。"},
     {type:"最佳选择题",q:"静脉注射某一单室模型药物，体内药物剩余分数为10%时所经历的半衰期个数为",opts:["A.1","B.2","C.3.32","D.4","E.6.64"],ans:"C",exp:"药物剩余10%表明代谢了90%，需要3.32个半衰期。"},
@@ -183,11 +184,11 @@ function renderChapter(){
   currentQuestionIndex=0;
   answered=0;
   correct=0;
-  renderOneQuestion();
+  ();
   updateNavButtons();
 }
 
-function renderOneQuestion(){
+function (){
   var ch=chapters[currentChapter];
   var flat=ch._flat;
   var quiz=document.getElementById('quiz');
@@ -211,27 +212,49 @@ function renderOneQuestion(){
   title.className='q-title';
   title.textContent=item.q;
   card.appendChild(title);
+   // 题干配图（如果有）
+  if(item.img){
+    var imgEl=document.createElement('img');
+    imgEl.src=item.img;
+    imgEl.style.cssText='max-width:100%;display:block;margin:10px auto;border-radius:6px;';
+    imgEl.onerror=function(){this.style.display='none';};
+    card.appendChild(imgEl);
+  }
   var ansArr=item.ans.split('');
   var isMulti=ansArr.length>1;
   var selected=[];
   var allButtons=[];
-  for(var k=0;k<item.opts.length;k++){
-    (function(opt){
+    for(var k=0;k<item.opts.length;k++){
+    (function(opt, idx){
       var btn=document.createElement('button');
       btn.className='option';
-      btn.textContent=opt;
+      if(item.optImgs && item.optImgs[idx]){
+        // 选项带图
+        var letterSpan=document.createElement('span');
+        letterSpan.textContent=opt+' ';
+        letterSpan.style.cssText='display:inline-block;vertical-align:top;font-weight:600;margin-right:6px;';
+        btn.appendChild(letterSpan);
+        var optImg=document.createElement('img');
+        optImg.src=item.optImgs[idx];
+        optImg.style.cssText='max-width:85%;max-height:150px;display:inline-block;vertical-align:middle;border-radius:4px;';
+        optImg.onerror=function(){this.style.display='none';};
+        btn.appendChild(optImg);
+      }else{
+        // 选项纯文字
+        btn.textContent=opt;
+      }
       var letter=opt.charAt(0);
       btn.onclick=function(){
         if(btn.classList.contains('disabled'))return;
         if(isMulti){
-          var idx=selected.indexOf(letter);
-          if(idx===-1){selected.push(letter);btn.style.background='#d0e3ff';btn.style.borderColor='#4a90e2';}
-          else{selected.splice(idx,1);btn.style.background='';btn.style.borderColor='';}
+          var ix=selected.indexOf(letter);
+          if(ix===-1){selected.push(letter);btn.style.background='#d0e3ff';btn.style.borderColor='#4a90e2';}
+          else{selected.splice(ix,1);btn.style.background='';btn.style.borderColor='';}
         }else{judgeOne([letter]);}
       };
       allButtons.push(btn);
       card.appendChild(btn);
-    })(item.opts[k]);
+    })(item.opts[k], k);
   }
   if(isMulti){
     var submitBtn=document.createElement('button');
@@ -282,7 +305,7 @@ function renderOneQuestion(){
       var timer=setInterval(function(){
         countdown--;
         if(btn)btn.textContent='即将跳转… '+countdown;
-        if(countdown<=0){clearInterval(timer);currentQuestionIndex++;renderOneQuestion();}
+        if(countdown<=0){clearInterval(timer);currentQuestionIndex++;();}
       },500);
     }else{
       answered++;
