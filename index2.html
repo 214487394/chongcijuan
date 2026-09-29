@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>药学冲刺系统</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #e8f5e0;
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+    }
+    h1 {
+      font-size: 26px;
+      margin: 20px 0 8px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #5a6b5c;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .menu {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .menu a {
+      display: block;
+      background: #f4fbf0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 19px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border: 1px solid #cce8cd;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu a:hover {
+      background: #d8f0da;
+      border-color: #8cc98f;
+    }
+    .menu a:active {
+      transform: scale(0.99);
+    }
+    .menu a .arrow {
+      color: #8cc98f;
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #8a9b8c;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 药学冲刺系统</h1>
+  <div class="subtitle">请选择科目开始刷题</div>
+
+  <div class="menu">
+    <a href="xiyao1.html">
+      西药一
+      <span class="arrow">›</span>
+    </a>
+    <a href="yaoxue2.html">
+      药学专业知识（二）
+      <span class="arrow">›</span>
+    </a>
+    <a href="yaozong.html">
+      药学综合知识与技能
+      <span class="arrow">›</span>
+    </a>
+    <a href="fagui.html">
+      药事管理与法规
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="footer">点击卡片进入对应题库</div>
+
+</body>
+</html>
